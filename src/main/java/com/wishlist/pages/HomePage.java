@@ -1,12 +1,14 @@
 package com.wishlist.pages;
 
-import io.opentelemetry.api.baggage.propagation.W3CBaggagePropagator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
+
 public class HomePage extends BasePage {
+
     public HomePage(WebDriver driver) {
 
         super(driver);
@@ -20,21 +22,22 @@ public class HomePage extends BasePage {
         return new HomePage(driver);
     }
 
-    @FindBy(xpath = "//span['О нас']")
-    WebElement result;
-
-    public HomePage verifyAboutUs(String text) {
-        Assert.assertTrue(result.getText().contains(text));
-        return this;
-    }
-
-    @FindBy(css = "[href='/login']")
+    @FindBy(css = "ul.nav-list :nth-child(3)")
     WebElement logInLink;
 
     public HomePage clickOnLogInLink() {
         click(logInLink);
         return new HomePage(driver);
     }
+
+    @FindBy(css = "ul.nav-list :nth-child(3)")
+    WebElement linkLogin;
+
+    public boolean logInLinkPresent() {
+        linkLogin.isDisplayed();
+        return true;
+    }
+
 
     @FindBy(xpath = "//button[.='Log In']")
     WebElement logInresult;
@@ -44,7 +47,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    @FindBy(css = "[href='/signUp']")
+    @FindBy(css = "ul.nav-list :nth-child(4)")
     WebElement signUp;
 
     public HomePage clickOnSignUpLink() {
@@ -64,7 +67,7 @@ public class HomePage extends BasePage {
     WebElement saveWishList;
 
     public HomePage clickOnButtonCreateNewWishList() {
-        clickWithJS(saveWishList, 0, 300);
+        clickWithJS(saveWishList, 0, 500);
         return new HomePage(driver);
     }
 
@@ -76,11 +79,69 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    @FindBy(css = "[href='/createWishlist']")
+    @FindBy(xpath = "//button[text()='I want a Wishlist']")
     WebElement iWantbutton;
 
-    public HomePage clickIwantWishListButton() {
-        clickWithJS(iWantbutton, 0, 700);
+    public HomePage clickIwantWishListButtonWithJS() {
+        clickWithJS(iWantbutton, 0, 900);
         return new HomePage(driver);
     }
+
+    @FindBy(css = "[href='/privacy-policy']")
+    WebElement privacyPolicyLink;
+
+    public HomePage clickOnPrivacyPolicyLink() {
+        clickWithJS(privacyPolicyLink, 0, 500);
+        return new HomePage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='PrivacyPolicy']")
+    WebElement textPolicy;
+
+    public HomePage verifyPrivacyPolicy(String text) {
+        Assert.assertTrue(textPolicy.getText().contains(text));
+        return this;
+    }
+
+    @FindBy(css = "li:nth-child(3)")
+    WebElement logOutLink;
+
+    public HomePage clickOnLogOutLink() {
+        return this;
+    }
+
+    @FindBy(css = ".pink-box")
+    WebElement pinkBox;
+
+    public HomePage verifyPinkBox(String text) {
+        Assert.assertTrue(pinkBox.getText().contains(text));
+        return this;
+    }
+
+    @FindBy(css = ".header")
+    WebElement image;
+    public boolean isHeaderImagePresent() {
+        return isElementPresent(image);
+    }
+
+    //    @FindBy(xpath = "//button[.='I want a Wishlist']")
+//    WebElement iWantWLbutton;
+//    public HomePage isIWantWLButtonPresent(String text) {
+//        Assert.assertTrue(iWantWLbutton.getText().contains(text));
+//        return this;
+//    }
+    @FindBy(css = ".section")
+    WebElement homePagesection;
+    public boolean isHomePagePresent() {
+        return isElementPresent(homePagesection);
+    }
+
+    @FindBy(css="svg")
+    WebElement svgAccount;
+    public HomePage clickOnIconAccount() {
+        click(svgAccount);
+        return new HomePage(driver);
+    }
+
+
 }
