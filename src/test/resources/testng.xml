@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Smoky" verbose="1">
+    <test name="CrossBrowserTest">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="com.wishlist.tests.CrossBrowserTest" />
+        </classes>
+    </test>
+    <test name="CrossBrowserTestFirefox">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="com.wishlist.tests.CrossBrowserTest" />
+        </classes>
+    </test>
+    <test name="CrossBrowserTestEdge">
+        <parameter name="browser" value="edge" />
+        <classes>
+            <class name="com.wishlist.tests.CrossBrowserTest" />
+        </classes>
+    </test>
+
+</suite>
