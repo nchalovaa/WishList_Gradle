@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -14,6 +15,7 @@ import java.time.Duration;
 public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
         super(driver);
+
     }
 
     //@FindBy(id = "email")
@@ -25,10 +27,11 @@ public class LoginPage extends BasePage {
 
     public LoginPage enterPersonalData(String email, String password) {
         //scrollToUpWithJS();
-        //type(useremail, email);
-        //type(userpassword, password);
-        safeType(useremail,email);
-        safeType(userpassword, password);
+        pause(2000);
+        type(useremail, email);
+        type(userpassword, password);
+        //safeType(useremail,email);
+        //safeType(userpassword, password);
         return this;
     }
 
@@ -36,7 +39,7 @@ public class LoginPage extends BasePage {
     WebElement logInButton;
 
     public LoginPage clickOnLogInButtonWithJs() {
-        //      safeClick(logInButton);
+        // safeClick(logInButton);
         clickWithJS(logInButton, 0, 50);
         return this;
     }

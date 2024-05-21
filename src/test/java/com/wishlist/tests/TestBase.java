@@ -41,14 +41,6 @@ public class TestBase {
 
     @AfterMethod(enabled = false)
     public void tearDown() {
-        homePage = new HomePage(app.driver);
-        loginPage = new LoginPage(app.driver);
-        accountPage = new AccountPage(app.driver);
-        signupPage = new SignUpPage(app.driver);
-        aboutUsPage=new AboutUsPage(app.driver);
-        privacyPolicyPage= new PrivacyPolicyPage(app.driver);
-        wishListPage=new WishListPage(app.driver);
-
         app.driver.quit();
     }
 }

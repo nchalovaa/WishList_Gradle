@@ -3,9 +3,11 @@ package com.wishlist.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class SignUpPage extends BasePage {
+
     public SignUpPage(WebDriver driver) {
         super(driver);
     }
@@ -69,8 +71,8 @@ public class SignUpPage extends BasePage {
     public SignUpPage verifyErrorMessage(String text) {
         Assert.assertTrue(error.getText().contains(text));
         return this;
-
     }
+
     @FindBy(xpath = ".save-button")
     WebElement verifySignUpButton;
     public SignUpPage verifySignUpButton(String text) {

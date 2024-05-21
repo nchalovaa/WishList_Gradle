@@ -58,10 +58,4 @@ public class LogInNotAuthUserNegativeTests extends TestBase {
 //                .verifyErrorMessage("Error");
 //    }
 
-
-    @AfterMethod(enabled = false)
-    @Override
-    public void tearDown() {
-        super.tearDown();
-    }
 }

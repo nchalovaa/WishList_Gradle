@@ -43,9 +43,4 @@ public class CreateWLiWantButtonHomePageTests extends TestBase {
 
     }
 
-    @AfterMethod(enabled = false)
-    @Override
-    public void tearDown() {
-        super.tearDown();
-    }
 }

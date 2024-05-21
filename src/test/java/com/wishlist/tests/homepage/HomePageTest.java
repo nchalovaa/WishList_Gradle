@@ -69,14 +69,4 @@ public class HomePageTest extends TestBase {
 
     }
 
-    @AfterMethod
-    public void tearDown() {
-        homePage = new HomePage(app.driver);
-        loginPage = new LoginPage(app.driver);
-        accountPage = new AccountPage(app.driver);
-        signupPage = new SignUpPage(app.driver);
-        aboutusPage = new AboutUsPage(app.driver);
-        wishListPage = new WishListPage(app.driver);
-        app.driver.quit();
-    }
 }

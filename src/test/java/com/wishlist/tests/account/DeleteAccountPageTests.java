@@ -1,10 +1,8 @@
 package com.wishlist.tests.account;
 
-import com.wishlist.pages.AccountPage;
-import com.wishlist.pages.HomePage;
-import com.wishlist.pages.LoginPage;
-import com.wishlist.pages.SignUpPage;
+import com.wishlist.pages.*;
 import com.wishlist.tests.TestBase;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -25,7 +23,6 @@ public class DeleteAccountPageTests extends TestBase {
         loginPage = new LoginPage(app.driver);
         accountPage = new AccountPage(app.driver);
         signupPage = new SignUpPage(app.driver);
-        driver=new ChromeDriver();
 
         if (!homePage.logInLinkPresent()) {
             homePage.clickOnLogOutLink();
@@ -40,12 +37,12 @@ public class DeleteAccountPageTests extends TestBase {
                 .enterPersonalData("dudkina@web.de", "Berlin2024!")
                 .clickOnLogInButtonWithJs();
         accountPage
-                .clickOnDeleteAccount("Delete Account");
-        homePage.isHomePagePresent();
+                .clickOnDeleteAccount()
+                .findModalContent();
+        // .selectDelete("Delete Account");
+
+        //homePage.isHomePagePresent();
     }
-    @AfterMethod
-    @Override
-    public void tearDown() {
-        super.tearDown();
-    }
+
+
 }

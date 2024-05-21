@@ -47,9 +47,4 @@ public class CreateAccountPageTests extends TestBase {
                 .verifyAccountPage("Create WishList");
     }
 
-    @AfterMethod
-    @Override
-    public void tearDown() {
-        super.tearDown();
-    }
 }

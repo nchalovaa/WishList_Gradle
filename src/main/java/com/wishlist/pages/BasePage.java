@@ -19,6 +19,12 @@ public class BasePage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         js = (JavascriptExecutor) driver;
+//        js = (JavascriptExecutor) driver;
+//        wait = new FluentWait<>(driver) // Инициализируем FluentWait
+//                .withTimeout(Duration.ofSeconds(15)) // Устанавливаем таймаут ожидания
+//                .pollingEvery(Duration.ofSeconds(1)) // Устанавливаем периодичность проверки
+//                .ignoring(NoSuchElementException.class) // Игнорируем исключение NoSuchElementException
+//                .ignoring(StaleElementReferenceException.class); // Игнорируем исключение StaleElementReferenceException
     }
 
     protected boolean isElementPresent(WebElement element) {
@@ -27,34 +33,30 @@ public class BasePage {
         } catch (NoSuchElementException | StaleElementReferenceException e) {
             return false;
         }
-//        try {
-//            wait.until(ExpectedConditions.visibilityOf(element));
-//            return element.isDisplayed();
-//        } catch (StaleElementReferenceException e) {
-//            return false;
-//        }
     }
+
     public void click(WebElement element) {
         element.click();
     }
 
     public void type(WebElement element, String text) {
         if (text != null) {
-
             click(element);
             element.clear();
             element.sendKeys(text);
         }
     }
+
     //Использование ожидания доступности элемента click
     public void safeClick(WebElement element) {
         try {
             element.click();
         } catch (StaleElementReferenceException e) {
-            element = wait.until(ExpectedConditions.elementToBeClickable(element));
+            wait.until(ExpectedConditions.elementToBeClickable(element));
             element.click();
         }
     }
+
     //Использование ожидания доступности элемента type
     public void safeType(WebElement element, String text) {
         try {
@@ -72,6 +74,7 @@ public class BasePage {
         pause(500);
         click(element);
     }
+
     public void scrollToTopWithJS() {
         js.executeScript("window.scrollTo(0, 0)");
     }
@@ -87,12 +90,12 @@ public class BasePage {
 
     public boolean isAlertPresent() {
         Alert alert = new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.alertIsPresent());
+
         if (alert == null) {
             return false;
         } else {
             driver.switchTo().alert();
-            //click on OK
-            // alert.accept();
+            alert.accept();
             return true;
         }
     }

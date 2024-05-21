@@ -48,9 +48,4 @@ public class CreateWLFromAccountAuthUserTests extends TestBase {
 
     }
 
-    @AfterMethod(enabled = false)
-    @Override
-    public void tearDown() {
-        super.tearDown();
-    }
 }

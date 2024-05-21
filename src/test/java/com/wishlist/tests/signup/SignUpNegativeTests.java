@@ -1,4 +1,4 @@
-package com.wishlist.tests.login;
+package com.wishlist.tests.signup;
 
 import com.wishlist.pages.AccountPage;
 import com.wishlist.pages.HomePage;
@@ -9,32 +9,28 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LoginAuthUserTests extends TestBase {
+public class SignUpNegativeTests extends TestBase {
     private HomePage homePage;
-    private LoginPage loginPage;
-    private AccountPage accountPage;
     private SignUpPage signupPage;
 
     @BeforeMethod
     public void precondition() {
         homePage = new HomePage(app.driver);
-        loginPage = new LoginPage(app.driver);
-        accountPage = new AccountPage(app.driver);
         signupPage = new SignUpPage(app.driver);
 
         if (!homePage.logInLinkPresent()) {
             homePage.clickOnLogOutLink();
         } else {
-            homePage.clickOnLogInLink();
+            homePage.clickOnSignUpLink();
         }
     }
 
     @Test
-    public void fillLogInForm() {
-        loginPage
-                .enterPersonalData("dudkina@web.de", "Berlin2024!")
-                .clickOnLogInButtonWithJs();
-        accountPage
-                .verifyAccountPage("Create WishList");
+    public void fillRegistrationFormtWithExistedEmailNegativeTest() {
+
+        signupPage
+                .enterPersonalDatasafe("Lena", "Dudkina", "dudkina@web.ru", "Berlin2024!", "Berlin2024!")
+                .clickOnSignUpButtonRegistr()
+                .verifyErrorMessage("Error");
     }
 }

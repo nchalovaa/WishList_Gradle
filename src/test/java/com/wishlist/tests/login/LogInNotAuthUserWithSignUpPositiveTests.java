@@ -45,9 +45,4 @@ public class LogInNotAuthUserWithSignUpPositiveTests extends TestBase {
                 .verifyAccountPage("Create WishList");
     }
 
-    @AfterMethod(enabled = false)
-    @Override
-    public void tearDown() {
-        super.tearDown();
-    }
 }

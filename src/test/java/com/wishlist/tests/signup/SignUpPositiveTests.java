@@ -9,7 +9,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class SignUpTests extends TestBase {
+public class SignUpPositiveTests extends TestBase {
     private HomePage homePage;
     private LoginPage loginPage;
     private AccountPage accountPage;
@@ -38,12 +38,11 @@ public class SignUpTests extends TestBase {
 //                .clickOnSignUpButtonRegistr();
 //                accountPage-.                        .verifyAccountPage("Create WishList");
         signupPage
-                .enterPersonalDatasafe("Lena", "Dudkina", "dudkina@web.ru", "Berlin2024!", "Berlin2024!")
+                .enterPersonalDatasafe("Lena", "Dudkina", "lenadud2@com.me", "Berlin2024!", "Berlin2024!")
                 .clickOnSignUpButtonRegistr();
         loginPage
-                .enterPersonalData("dudkina@web.ru", "Berlin2024!")
-                .clickOnLogInButtonWithJs()
-                .clickOnSignUpLink();
+                .enterPersonalData("lenadud2@com.me", "Berlin2024!")
+                .clickOnLogInButtonWithJs();
         accountPage
                 .verifyAccountPage("Create WishList");
     }
@@ -57,10 +56,5 @@ public class SignUpTests extends TestBase {
 //                .verifyErrorMessage("Error");
 //    }
 
-    @AfterMethod(enabled = false)
-    @Override
-    public void tearDown() {
-        super.tearDown();
-    }
 
 }
