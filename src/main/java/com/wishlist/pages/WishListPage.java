@@ -4,29 +4,28 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class WishListPage extends BasePage {
 
     public WishListPage(WebDriver driver) {
         super(driver);
     }
+    public
 
     @FindBy(id = "wishlist-name")
     WebElement name;
-    public WishListPage inputNameWishlist(String title) {
-        scrollToTopWithJS();
-        type(name, title);
-        return this;
-    }
     @FindBy(id = "comment")
     WebElement comments;
-    public WishListPage inputComment(String comment) {
-        type(comments, comment);
-        return this;
-    }
     @FindBy(id = "event-date")
     WebElement eventdate;
-    public WishListPage inputEventDate(String date) {
+    @FindBy(css = ".save-button-custom")
+    WebElement savebutton;
+
+    public WishListPage fillWishListForm(String title, String comment, String date ) {
+        scrollToTopWithJS();
+        type(name, title);
+        type(comments, comment);
         click(eventdate);
         String os = System.getProperty("os.name");
         System.out.println("My OS is " + os);
@@ -35,16 +34,14 @@ public class WishListPage extends BasePage {
         } else {
             eventdate.sendKeys(Keys.CONTROL, "a");
         }
-
         eventdate.sendKeys(date);
         eventdate.sendKeys(Keys.ENTER);
-        return this;
-    }
-    @FindBy(css = ".save-button-custom")
-    WebElement savebutton;
-    public WishListPage clickOnSaveButton() {
         click(savebutton);
-        return this;
+
+        return new WishListPage(driver);
     }
 
 }
+
+
+

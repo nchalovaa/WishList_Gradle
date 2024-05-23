@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-public class AboutUsPage extends BasePage {
+public class AboutUsPage extends BasePage{
 
     public AboutUsPage(WebDriver driver) {
         super(driver);
@@ -22,6 +22,6 @@ public class AboutUsPage extends BasePage {
     WebElement aboutusLink;
     public AboutUsPage clickOnAboutUs() {
         click(aboutusLink);
-        return  this;
+        return  new AboutUsPage(driver);
     }
 }

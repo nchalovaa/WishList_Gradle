@@ -8,8 +8,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LogInNotAuthUserNegativeTests extends TestBase {
-    private HomePage homePage;
-    private LoginPage loginPage;
 
     @BeforeMethod
     public void precondition() {
@@ -22,25 +20,13 @@ public class LogInNotAuthUserNegativeTests extends TestBase {
             homePage.clickOnLogInLink();
         }
     }
-
     // Проверка, что незарегистрированный пользователь c валидным email НЕ может залогиниться
     @Test
-    public void fillLogInForm() {
+    public void loginWithValidEmailNegativeTest() {
         loginPage
-                .enterPersonalData("dud888@web.ma", "Berlin2024!")
-                .clickOnLogInButtonWithJs()
+                .enterPersonalData("pupkin@web.de", "Berlin2024!")
                 .verifyErrorMessage("Error");
     }
-
-    // Нет errorMessage для пустых полей ввода
-    @Test(enabled = false)
-    public void loginWithoutPasswordNegativeTest() {
-        loginPage
-                .enterPersonalData("dudkina@web.de", "")
-                .clickOnLogInButtonWithJs()
-                .verifyErrorMessage("Error");
-    }
-
 
 //    @Test(dataProvider = "iNvalidLoginData", dataProviderClass = DataProviderClass.class)
 //    public void fillLogInWithCsvFileNegative(UserLogin user) {

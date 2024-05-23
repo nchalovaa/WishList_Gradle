@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-
 public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
@@ -36,7 +35,6 @@ public class HomePage extends BasePage {
         linkLogin.isDisplayed();
         return true;
     }
-
 
     @FindBy(xpath = "//button[.='Log In']")
     WebElement logInresult;
@@ -106,41 +104,29 @@ public class HomePage extends BasePage {
     WebElement logOutLink;
 
     public HomePage clickOnLogOutLink() {
-        return this;
-    }
-
-    @FindBy(css = ".pink-box")
-    WebElement pinkBox;
-
-    public HomePage verifyPinkBox(String text) {
-        Assert.assertTrue(pinkBox.getText().contains(text));
+        click(logOutLink);
         return this;
     }
 
     @FindBy(css = ".header")
     WebElement image;
+
     public boolean isHeaderImagePresent() {
         return isElementPresent(image);
     }
 
-    //    @FindBy(xpath = "//button[.='I want a Wishlist']")
-//    WebElement iWantWLbutton;
-//    public HomePage isIWantWLButtonPresent(String text) {
-//        Assert.assertTrue(iWantWLbutton.getText().contains(text));
-//        return this;
-//    }
     @FindBy(css = ".section")
     WebElement homePagesection;
+
     public boolean isHomePagePresent() {
         return isElementPresent(homePagesection);
     }
 
-    @FindBy(css="svg")
+    @FindBy(css = "svg")
     WebElement svgAccount;
+
     public HomePage clickOnIconAccount() {
         click(svgAccount);
         return new HomePage(driver);
     }
-
-
 }

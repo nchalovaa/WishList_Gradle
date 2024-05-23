@@ -15,7 +15,6 @@ import java.time.Duration;
 public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
         super(driver);
-
     }
 
     //@FindBy(id = "email")
@@ -24,24 +23,18 @@ public class LoginPage extends BasePage {
     //@FindBy(id = "password")
     @FindBy(xpath = "//input[@type='password']")
     WebElement userpassword;
-
-    public LoginPage enterPersonalData(String email, String password) {
-        //scrollToUpWithJS();
-        pause(2000);
-        type(useremail, email);
-        type(userpassword, password);
-        //safeType(useremail,email);
-        //safeType(userpassword, password);
-        return this;
-    }
-
     @FindBy(css = ".save-button")
     WebElement logInButton;
 
-    public LoginPage clickOnLogInButtonWithJs() {
-        // safeClick(logInButton);
+    public LoginPage enterPersonalData(String email, String password) {
+        scrollToUpWithJS();
+        pause(2000);
+        type(useremail, email);
+        type(userpassword, password);
         clickWithJS(logInButton, 0, 50);
-        return this;
+        //safeType(useremail,email);
+        //safeType(userpassword, password);
+        return new LoginPage(driver);
     }
 
     @FindBy(css = ".home-button")
@@ -60,46 +53,23 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    @FindBy(css = ".create-wishlist-button")
-    WebElement wishlistButton;
-
-    public LoginPage clickOnCreateWishList() {
-        click(wishlistButton);
-        return this;
-    }
-
-    @FindBy(xpath = "//span['my-wishlists']")
-    WebElement mywishlists;
-
-    public LoginPage verifyElement(String text) {
-        Assert.assertTrue(mywishlists.getText().contains(text));
-        return this;
-    }
-
-    @FindBy(css = ".auth-container")
-    WebElement logInContainer;
-
-    public void verifyLoginForm(String text) {
-
-    }
-
-    @FindBy(id = "email")
-    WebElement clickemail;
-
-    public LoginPage clickEmailInput() {
-        click(clickemail);
-        return this;
-    }
-
     @FindBy(css = "[href='/signup']")
     WebElement signUpLink;
 
     public LoginPage clickOnSignUpLink() {
         clickWithJS(signUpLink, 0, 100);
-        return this;
+        return new LoginPage(driver);
     }
 
     public void scrollToUpWithJS() {
         js.executeScript("window.scrollTo(0, 0)");
+    }
+
+    @FindBy(css = ".auth-container")
+    WebElement loginContainer;
+
+    public LoginPage verifyLoginForm(String text) {
+        Assert.assertTrue(loginContainer.getText().contains(text));
+        return this;
     }
 }

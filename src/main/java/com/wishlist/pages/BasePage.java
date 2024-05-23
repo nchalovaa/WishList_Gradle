@@ -6,6 +6,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.time.Duration;
 
 public class BasePage {
@@ -88,15 +92,41 @@ public class BasePage {
         }
     }
 
-    public boolean isAlertPresent() {
-        Alert alert = new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.alertIsPresent());
+    public void uploadFile(WebElement element, String filePath) {
+        element.sendKeys(filePath);
+    }
 
-        if (alert == null) {
-            return false;
-        } else {
-            driver.switchTo().alert();
-            alert.accept();
-            return true;
+    public void hideFooter() {
+        js.executeScript("document.querySelector('footer').style.display='none';");
+    }
+
+    public void uploadFileRobot(String filePath) {
+        try {
+            // Скопировать путь к файлу в буфер обмена
+            StringSelection stringSelection = new StringSelection(filePath);
+            Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+            clipboard.setContents(stringSelection, null);
+
+            // Создать объект Robot
+            Robot robot = new Robot();
+
+            // Добавить задержку
+            robot.delay(1000);
+
+            // Нажать комбинацию клавиш для вставки текста из буфера обмена
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+
+            // Добавить задержку
+            robot.delay(1000);
+
+            // Нажать Enter для подтверждения выбора файла
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

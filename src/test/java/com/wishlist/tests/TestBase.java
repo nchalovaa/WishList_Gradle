@@ -15,13 +15,17 @@ public class TestBase {
 
     protected static ApplicationManager app = new ApplicationManager("chrome");
     public WebDriver driver;
-    HomePage homePage;
-    LoginPage loginPage;
-    AccountPage accountPage;
-    SignUpPage signupPage;
-    AboutUsPage aboutUsPage;
-    PrivacyPolicyPage privacyPolicyPage;
-    WishListPage wishListPage;
+
+    public HomePage homePage;
+    public LoginPage loginPage;
+    public AccountPage accountPage;
+    public SignUpPage signupPage;
+    public AboutUsPage aboutUsPage;
+    public PrivacyPolicyPage privacyPolicyPage;
+    public WishListPage wishListPage;
+    public CardPage cardPage;
+    public GiftPage giftPage;
+    public WishListContentPage wishListContentPage;
 
     @BeforeMethod
     public void setUp() {

@@ -1,17 +1,12 @@
-package com.wishlist.tests.signup;
+package com.wishlist.tests.account;
 
-import com.wishlist.pages.AccountPage;
 import com.wishlist.pages.HomePage;
-import com.wishlist.pages.LoginPage;
 import com.wishlist.pages.SignUpPage;
 import com.wishlist.tests.TestBase;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class SignUpNegativeTests extends TestBase {
-    private HomePage homePage;
-    private SignUpPage signupPage;
 
     @BeforeMethod
     public void precondition() {
@@ -24,13 +19,13 @@ public class SignUpNegativeTests extends TestBase {
             homePage.clickOnSignUpLink();
         }
     }
-
+    // User ist already existed and tries to create second account with the same email
     @Test
     public void fillRegistrationFormtWithExistedEmailNegativeTest() {
 
         signupPage
-                .enterPersonalDatasafe("Lena", "Dudkina", "dudkina@web.ru", "Berlin2024!", "Berlin2024!")
-                .clickOnSignUpButtonRegistr()
+                .enterPersonalData("Lena", "Dudkina", "dudkina@web.de", "Berlin2024!", "Berlin2024!")
                 .verifyErrorMessage("Error");
     }
+
 }

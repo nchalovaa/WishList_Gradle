@@ -5,42 +5,31 @@ import com.wishlist.pages.HomePage;
 import com.wishlist.pages.LoginPage;
 import com.wishlist.pages.WishListPage;
 import com.wishlist.tests.TestBase;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CreateWLiWantButtonHomePageTests extends TestBase {
-    private HomePage homePage;
-    private LoginPage loginPage;
-    private AccountPage accountPage;
-    private WishListPage wishlistPage;
+public class CreateWLiWantButtonHomePageAuthUserTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
         homePage = new HomePage(app.driver);
         loginPage = new LoginPage(app.driver);
         accountPage = new AccountPage(app.driver);
-        wishlistPage = new WishListPage(app.driver);
+        wishListPage = new WishListPage(app.driver);
         homePage
                 .clickIwantWishListButtonWithJS();
         loginPage
-                .enterPersonalData("dudkina@web.de", "Berlin2024!")
-                .clickOnLogInButtonWithJs();
+                .enterPersonalData("dudkina@web.de", "Berlin2024!");
     }
 
     @Test
     public void clickOnIWantWishList() throws InterruptedException {
         accountPage
                 .createWishListButton();
-        wishlistPage
-                .inputNameWishlist("Birthday")
-                .inputComment("Скоро у меня день рождения")
-                .inputEventDate("15/08/2024")
-                .clickOnSaveButton();
+        wishListPage
+                .fillWishListForm("Birthday","I have birthday soon", "15102025");
         Thread.sleep(1500);
-        //accountPage
-        //       .verifyCard();
-
+        accountPage
+                .verifyCardOfWishList();
     }
-
 }

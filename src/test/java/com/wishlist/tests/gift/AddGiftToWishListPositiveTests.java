@@ -1,22 +1,22 @@
-package com.wishlist.tests.wishlist;
+package com.wishlist.tests.gift;
 
-import com.wishlist.pages.AccountPage;
-import com.wishlist.pages.HomePage;
-import com.wishlist.pages.LoginPage;
-import com.wishlist.pages.WishListPage;
+import com.wishlist.pages.*;
 import com.wishlist.tests.TestBase;
-import org.testng.annotations.AfterMethod;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CreateWLFromAccountAuthUserTests extends TestBase {
+public class AddGiftToWishListPositiveTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
         homePage = new HomePage(app.driver);
         loginPage = new LoginPage(app.driver);
         accountPage = new AccountPage(app.driver);
+        signupPage = new SignUpPage(app.driver);
         wishListPage = new WishListPage(app.driver);
+        giftPage=new GiftPage(app.driver);
+        wishListContentPage=new WishListContentPage(app.driver);
 
         if (!homePage.logInLinkPresent()) {
             homePage.clickOnIconAccount();
@@ -25,16 +25,22 @@ public class CreateWLFromAccountAuthUserTests extends TestBase {
         }
         loginPage
                 .enterPersonalData("dudkina@web.de", "Berlin2024!");
-    }
-
-    @Test
-    public void clickOnIWantWishList() throws InterruptedException {
         accountPage
                 .createWishListButton();
         wishListPage
                 .fillWishListForm("Birthday","I have birthday soon", "15102025");
-        Thread.sleep(1500);
-        accountPage
-                .verifyCardOfWishList();
     }
+    @Test
+    private void addGiftToExistedWishListTest(){
+        accountPage.clickOnAddGiftButton();
+        giftPage.
+                fillGiftform("https://www.douglas.de/de",
+                        "Chanel Allure" ,"100",
+                        "USD",
+                        "I want this",
+                        "");
+
+        wishListContentPage.verifyShare();
+    }
+
 }

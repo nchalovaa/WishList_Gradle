@@ -9,11 +9,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LoginAuthUserTests extends TestBase {
-    private HomePage homePage;
-    private LoginPage loginPage;
-    private AccountPage accountPage;
-    private SignUpPage signupPage;
+public class LoginAuthUserPositiveTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
@@ -32,9 +28,9 @@ public class LoginAuthUserTests extends TestBase {
     @Test
     public void fillLogInForm() {
         loginPage
-                .enterPersonalData("dudkina@web.de", "Berlin2024!")
-                .clickOnLogInButtonWithJs();
+                .enterPersonalData("dudkina@web.de", "Berlin2024!");
         accountPage
                 .verifyAccountPage("Create WishList");
     }
+
 }

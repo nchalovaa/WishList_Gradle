@@ -1,5 +1,6 @@
 package com.wishlist.pages;
 
+
 import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -9,14 +10,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AccountPage extends BasePage {
     public AccountPage(WebDriver driver) {
         super(driver);
-
     }
 
-    @FindBy(css = ".create-wishlist-button")
+    @FindBy(css = ".create-wishlist-button-in-account")
     //@FindBy(xpath = "//a[contains(text(),'Create WishList')]")
     WebElement account;
 
@@ -31,7 +33,7 @@ public class AccountPage extends BasePage {
 
     public AccountPage createWishListButton() {
         click(wishListButtonAccount);
-        return this;
+        return new AccountPage(driver);
     }
 
     @FindBy(css = "ul.nav-list :nth-child(3)")
@@ -39,48 +41,21 @@ public class AccountPage extends BasePage {
 
     public AccountPage clickOnLogoutLinkAccount() {
         click(clickOnLogOut);
-        return this;
-    }
-
-    @FindBy(css = ".delete-button")
-    WebElement clickDeleteButton;
-
-    public AccountPage clickOnDeleteAccount() {
-        safeClick(clickDeleteButton);
         return new AccountPage(driver);
     }
-    @FindBy(xpath = "//p[contains(text(),'Do you want to delete your account?')]")
-    WebElement modalContent;
-    public WebElement findModalContent() {
-        return driver.findElement(By.xpath("//p[contains(text(),'Do you want to delete your account?')]"));
-    }
-//    @FindBy(xpath = "//p[contains(text(),'Do you want to delete your account?')]")
-//    WebElement modalContent;
-//public WebElement findModalContent() {
-//    return driver.findElement((By) modalContent);
-//}
 
-    public AccountPage selectDelete(String confirm) {WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        try {
-            WebElement modalContentElement = wait.until(ExpectedConditions.visibilityOf(modalContent));
-
-            if (modalContentElement.getText().contains("Do you want to delete your account?")) {
-                if (confirm != null && confirm.equals("Delete Account")) {
-                    driver.switchTo().alert().accept();
-                } else if (confirm != null && confirm.equals("x")) {
-                    driver.switchTo().alert().dismiss();
-                }
-            } else {
-                System.out.println("Модальное окно не содержит ожидаемого текста.");
-            }
-
-        } catch (TimeoutException e) {
-            System.out.println("Модальное окно не было загружено в течение 3 секунд.");
-        }
-        return this;
-    }
-
+    @FindBy(css = ".delete-button-in-account")
+    WebElement clickDeleteButtonToDeleteAccount;
     @FindBy(css = ".delete-account-button")
+    WebElement selectDeleteButton;
+
+    public AccountPage selectDeleteAccountButton() {
+        safeClick(clickDeleteButtonToDeleteAccount);
+        click(selectDeleteButton);
+        return new AccountPage(driver);
+    }
+
+    @FindBy(css = ".delete-button-in-account")
     WebElement verifyDelete;
 
     public AccountPage verifyDelete(String text) {
@@ -96,18 +71,46 @@ public class AccountPage extends BasePage {
         return new AccountPage(driver);
     }
 
-    @FindBy(css = "ant-card")
+    @FindBy(css = ".ant-card")
     WebElement cardExisted;
 
-    public AccountPage verifyCard() {
+    public AccountPage verifyCardOfWishList() {
         Assert.assertTrue(isElementPresent(cardExisted));
         return this;
     }
 
-    @FindBy(css = ".ant-card-head-title")
-    WebElement cardTitle;
-    public AccountPage clickOnTitleCard() {
-        click(cardTitle);
+    //    @FindBy(css=".ant-card")
+    @FindBy(css = ".ant-card-head")
+    WebElement card;
+
+    public AccountPage clickOnWishlist() {
+        click(card);
         return new AccountPage(driver);
+    }
+
+    //    @FindBy(xpath = "//button [.='add gift']")
+    @FindBy(css = ".add-gift-in-card-button-in-account")
+    WebElement addGiftButton;
+
+    public AccountPage clickOnAddGiftButton() {
+        //click(addGiftbutton);
+        clickWithJS(addGiftButton, 0, 500);
+        return new AccountPage(driver);
+    }
+
+
+    @FindBy(css = ".gift-count-text-in-account")
+    WebElement counterGifts;
+
+    public int getGiftCount() {
+        String text = counterGifts.getText().replaceAll("[^0-9]", "");
+        try {
+            return Integer.parseInt(text);
+        } catch (NumberFormatException e) {
+            return 0;
+        }
+//    @FindBy(css = ".time-left-text-in-account")
+//    WebElement dayLeftText;
+
     }
 }
