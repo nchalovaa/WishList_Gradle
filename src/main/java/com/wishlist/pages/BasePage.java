@@ -1,5 +1,6 @@
 package com.wishlist.pages;
 
+import com.google.common.io.Files;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,6 +11,8 @@ import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 public class BasePage {
@@ -17,6 +20,7 @@ public class BasePage {
     JavascriptExecutor js;
     public WebDriver driver;
     FluentWait<WebDriver> wait;
+
     public static final Duration WAIT_SEC = Duration.ofSeconds(5);
 
     public BasePage(WebDriver driver) {
@@ -43,7 +47,18 @@ public class BasePage {
         element.click();
     }
 
+    public void clickAlert(WebElement element) {
+        click(element);
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.alertIsPresent()).accept();
+    }
+
+    public void clickWithJSEye(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", element);
+    }
+
     public void type(WebElement element, String text) {
+
         if (text != null) {
             click(element);
             element.clear();
@@ -83,7 +98,6 @@ public class BasePage {
         js.executeScript("window.scrollTo(0, 0)");
     }
 
-
     public void pause(int millis) {
         try {
             Thread.sleep(millis);
@@ -98,6 +112,27 @@ public class BasePage {
 
     public void hideFooter() {
         js.executeScript("document.querySelector('footer').style.display='none';");
+    }
+
+    public void hideElementWithJS(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].style.visibility='hidden';", element);
+    }
+
+    public void showElementWithJS(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].style.visibility='visible';", element);
+    }
+
+    public boolean isAlertPresent() {
+        Alert alert = new WebDriverWait(driver, Duration.ofSeconds(15))
+                .until(ExpectedConditions.alertIsPresent());
+
+        if (alert == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public void uploadFileRobot(String filePath) {
@@ -128,5 +163,25 @@ public class BasePage {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void waitForGiftFormToBeFilled(WebElement[] requiredFields) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        for (WebElement field : requiredFields) {
+            wait.until(ExpectedConditions.attributeToBeNotEmpty(field, "value"));
+        }
+    }
+
+    public String takeScre() {
+        File tmp = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File screenshot = new File("Screenshots/screen-"
+                + System.currentTimeMillis() + ".png");
+
+        try {
+            Files.copy(tmp, screenshot);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return screenshot.getAbsolutePath();
     }
 }

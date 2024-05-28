@@ -1,7 +1,5 @@
 package com.wishlist.pages;
 
-
-import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,13 +8,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 public class AccountPage extends BasePage {
     public AccountPage(WebDriver driver) {
+
         super(driver);
+        PageFactory.initElements(driver, this);
     }
+
 
     @FindBy(css = ".create-wishlist-button-in-account")
     //@FindBy(xpath = "//a[contains(text(),'Create WishList')]")
@@ -27,8 +29,8 @@ public class AccountPage extends BasePage {
         return this;
     }
 
-    // @FindBy(css=".create-wishlist-button")
-    @FindBy(xpath = "//a[contains(text(),'Create WishList')]")
+    @FindBy(css = ".create-wishlist-button-in-account")
+    //@FindBy(xpath = "//a[contains(text(),'Create WishList')]")
     WebElement wishListButtonAccount;
 
     public AccountPage createWishListButton() {
@@ -36,11 +38,43 @@ public class AccountPage extends BasePage {
         return new AccountPage(driver);
     }
 
-    @FindBy(css = "ul.nav-list :nth-child(3)")
-    WebElement clickOnLogOut;
+    //@FindBy(css = "li:nth-child(3)")
+    @FindBy(xpath = "//a[.='Log Out']")
+    WebElement clickOnLogOutAcc;
 
-    public AccountPage clickOnLogoutLinkAccount() {
-        click(clickOnLogOut);
+    public AccountPage clickOnLogOutLinkAccount() {
+        click(clickOnLogOutAcc);
+        WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.urlToBe("http://localhost:3000/"));
+        return  new AccountPage(driver);
+    }
+//    public AccountPage clickOnLogOutLinkAccount() {
+//        clickOnLogOutAcc.click();
+//        WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.urlToBe("http://localhost:3000/dashboard"));
+//        return new AccountPage(driver);
+//    }
+//    public HomePage clickOnLogOutLinkAccount() {
+//        clickOnLogOutAcc.click();
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.urlToBe("http://localhost:3000/"));
+//        return new HomePage(driver);
+//    }
+
+
+    @FindBy(css = "li:nth-child(1)")
+    WebElement linkHome;
+
+    public AccountPage clickOnHomeLinkAccount() {
+        click(linkHome);
+        return new AccountPage(driver);
+    }
+
+    @FindBy(xpath = "//a[.='GiftListify']")
+    WebElement clickOnLogo;
+
+    public AccountPage clickOnLogo() {
+        click(clickOnLogo);
         return new AccountPage(driver);
     }
 
@@ -98,7 +132,6 @@ public class AccountPage extends BasePage {
         return new AccountPage(driver);
     }
 
-
     @FindBy(css = ".gift-count-text-in-account")
     WebElement counterGifts;
 
@@ -109,8 +142,36 @@ public class AccountPage extends BasePage {
         } catch (NumberFormatException e) {
             return 0;
         }
-//    @FindBy(css = ".time-left-text-in-account")
-//    WebElement dayLeftText;
-
     }
+
+    @FindBy(css = ".time-left-text-in-account")
+    WebElement daysLeftText;
+
+    public int daysLeftExpected() {
+        String text = daysLeftText.getText().replaceAll("[^0-9]", "");
+        try {
+            return Integer.parseInt(text);
+        } catch (NumberFormatException e) {
+            return 0;   //508
+        }
+    }
+
+    public int daysLeftActual(String eventdate) {
+        //String eventDate = "15082025";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyy");
+        LocalDate localDate = LocalDate.parse(eventdate, formatter);
+        LocalDate today = LocalDate.now();
+
+        int days = (int) ChronoUnit.DAYS.between(today, localDate);
+        return days;
+        // return (int) ChronoUnit.DAYS.between(today, localDate);
+    }
+
+    public AccountPage verifyDayCounterLeft(int leftDays) {
+        int expected = daysLeftExpected();
+
+        Assert.assertEquals(leftDays-1 , expected);
+        return this;
+    }
+
 }

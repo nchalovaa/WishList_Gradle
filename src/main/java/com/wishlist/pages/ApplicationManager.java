@@ -1,5 +1,6 @@
 package com.wishlist.pages;
 
+import com.wishlist.models.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -13,6 +14,7 @@ public class ApplicationManager {
     public WebDriver driver;
     public String browser;
     public static ApplicationManager app = new ApplicationManager(System.getProperty("browser", Browser.CHROME.browserName()));
+    public User getUser;
 
     public WebDriver getDriver() {
         return driver;

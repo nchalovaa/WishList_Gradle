@@ -1,6 +1,5 @@
 package com.wishlist.pages;
-
-import org.openqa.selenium.By;
+import com.wishlist.models.User;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,33 +14,67 @@ import java.time.Duration;
 public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
-    //@FindBy(id = "email")
-    @FindBy(xpath = "//input[@type='email']")
-    WebElement useremail;
-    //@FindBy(id = "password")
-    @FindBy(xpath = "//input[@type='password']")
+    @FindBy(id = "email")
+    //   @FindBy(css="input:nth-child(2)")
+    //@FindBy(xpath = "//input[@type='email']")
+    WebElement useremailloc;
+    @FindBy(id = "password")
+    //@FindBy(xpath = "//input[@type='password']")
     WebElement userpassword;
-    @FindBy(css = ".save-button")
-    WebElement logInButton;
+    @FindBy(css = ".eye-icon")
+    WebElement eye;
 
     public LoginPage enterPersonalData(String email, String password) {
         scrollToUpWithJS();
-        pause(2000);
-        type(useremail, email);
+        pause(1000);
+        type(useremailloc, email);
         type(userpassword, password);
-        clickWithJS(logInButton, 0, 50);
-        //safeType(useremail,email);
-        //safeType(userpassword, password);
+        return new LoginPage(driver);
+    }
+    public LoginPage enterPersonalData(User user) {
+//        scrollToUpWithJS();
+        type(useremailloc , user.email);
+        type(userpassword, user.password);
         return new LoginPage(driver);
     }
 
-    @FindBy(css = ".home-button")
-    WebElement buttonHome;
+    public LoginPage enterEmail(String email) {
+        scrollToUpWithJS();
+        pause(1000);
+        type(useremailloc, email);
+        return this;
+    }
+
+    public LoginPage togglePasswordVisibility() {
+        click(eye);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
+        wait.until(ExpectedConditions.attributeToBe(userpassword, "type", "text"));
+        return this;
+    }
+
+    public LoginPage enterPasswordAndHideWithEnter(String password) {
+        togglePasswordVisibility();
+        userpassword.clear();
+        userpassword.sendKeys(password);
+        userpassword.sendKeys(Keys.ENTER);
+        return this;
+    }
+
+    @FindBy(css = ".save-button")
+    WebElement logInButton;
+
+    public void clickOnLogInButton() {
+        clickWithJS(logInButton, 0, 50);
+    }
+
+    @FindBy(xpath = "//a[.='Home']")
+    WebElement linkHome;
 
     public LoginPage clickOnHomeLink() {
-        click(buttonHome);
+        click(linkHome);
         return new LoginPage(driver);
     }
 
@@ -57,7 +90,7 @@ public class LoginPage extends BasePage {
     WebElement signUpLink;
 
     public LoginPage clickOnSignUpLink() {
-        clickWithJS(signUpLink, 0, 100);
+        clickWithJS(signUpLink, 0, 300);
         return new LoginPage(driver);
     }
 
@@ -65,7 +98,7 @@ public class LoginPage extends BasePage {
         js.executeScript("window.scrollTo(0, 0)");
     }
 
-    @FindBy(css = ".auth-container")
+    @FindBy(css = "h2")
     WebElement loginContainer;
 
     public LoginPage verifyLoginForm(String text) {

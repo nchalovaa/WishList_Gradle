@@ -4,12 +4,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.time.Duration;
 
 public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(css = "[href='/about']")
@@ -20,15 +26,22 @@ public class HomePage extends BasePage {
         return new HomePage(driver);
     }
 
-    @FindBy(css = "ul.nav-list :nth-child(3)")
+    //    @FindBy(css = "ul.nav-list :nth-child(3)")
+    @FindBy(xpath = "//a[.='Log In']")
     WebElement logInLink;
 
     public HomePage clickOnLogInLink() {
         click(logInLink);
+//        safeClick(logInLink);
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
+////        wait.until(ExpectedConditions.urlToBe("http://localhost:3000/dashboard"));
+//        wait.until(ExpectedConditions.urlToBe("http://localhost:3000/"));
+
         return new HomePage(driver);
     }
 
     @FindBy(css = "ul.nav-list :nth-child(3)")
+    //@FindBy(xpath = "//a[.='Log In']")
     WebElement linkLogin;
 
     public boolean logInLinkPresent() {
@@ -37,17 +50,20 @@ public class HomePage extends BasePage {
     }
 
     @FindBy(xpath = "//button[.='Log In']")
-    WebElement logInresult;
+    WebElement logInResult;
 
     public HomePage verifyLogInButton(String text) {
-        Assert.assertTrue(logInresult.getText().contains(text));
+        Assert.assertTrue(logInResult.getText().contains(text));
         return this;
     }
 
-    @FindBy(css = "ul.nav-list :nth-child(4)")
+    //@FindBy(css = "ul.nav-list :nth-child(4)")
+    @FindBy(xpath = "//a[.='Sign Up']")
     WebElement signUp;
 
     public HomePage clickOnSignUpLink() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(signUp));
         click(signUp);
         return new HomePage(driver);
     }
@@ -127,6 +143,15 @@ public class HomePage extends BasePage {
 
     public HomePage clickOnIconAccount() {
         click(svgAccount);
+        return new HomePage(driver);
+    }
+
+    //@FindBy(css = "[href='https://github.com/ania0005/Wishlist-project']")
+    @FindBy(css = "img[alt='Link']")
+    WebElement gitHubButton;
+
+    public HomePage clickOnGitHubButton() {
+        clickWithJS(gitHubButton, 0, 3000);
         return new HomePage(driver);
     }
 }

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a96a4751-9de4-4bf2-a590-4089c2a9e285" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/wishlist/pages/AboutUsPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/wishlist/pages/AboutUsPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/wishlist/pages/AccountPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/wishlist/pages/AccountPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/wishlist/pages/ApplicationManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/wishlist/pages/ApplicationManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/wishlist/pages/BasePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/wishlist/pages/BasePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/wishlist/pages/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/wishlist/pages/HomePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/wishlist/pages/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/wishlist/pages/LoginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/wishlist/pages/SignUpPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/wishlist/pages/SignUpPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/wishlist/pages/WishListPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/wishlist/pages/WishListPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/TestBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/TestBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/account/CreateAccountPageTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/account/CreateAccountPageTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/account/DeleteAccountPageTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/account/DeleteAccountPageTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/homepage/HomePageTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/homepage/HomePageTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/login/LogInNotAuthUserNegativeTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/login/LogInNotAuthUserNegativeTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/login/LogInNotAuthUserWithSignUpPositiveTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/login/LogInNotAuthUserWithSignUpPositiveTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/login/LoginAuthUserTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/signup/SignUpTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/wishlist/CreateWLButtonHomePageTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/wishlist/CreateWLFromAccountAuthUserTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/wishlist/CreateWLFromAccountAuthUserTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/wishlist/tests/wishlist/CreateWLiWantButtonHomePageTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/resources/csv/LoginINvalidData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/resources/csv/LoginINvalidData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/resources/csv/LoginValidData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/resources/csv/LoginValidData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wishlist/pages/AboutUsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wishlist/pages/AboutUsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wishlist/pages/AccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wishlist/pages/AccountPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wishlist/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wishlist/pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wishlist/pages/CardPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wishlist/pages/GitHubPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wishlist/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wishlist/pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wishlist/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wishlist/pages/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wishlist/pages/PrivacyPolicyPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wishlist/pages/PrivacyPolicyPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wishlist/pages/SignUpPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wishlist/pages/SignUpPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/account/CreateAccountPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/account/CreateAccountPageTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/account/DeleteAccountPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/account/DeleteAccountPageTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/account/SignUpNegativeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/account/SignUpNegativeTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/gift/AddGiftToWishListPositiveTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/gift/AddGiftToWishListPositiveTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/gift/DeleteGiftFromWishListPositiveTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/gift/DeleteGiftFromWishListPositiveTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/homepage/HomePageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/homepage/HomePageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/login/LogInNotAuthUserNegativeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/login/LogInNotAuthUserNegativeTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/login/LogInNotAuthUserWithSignUpPositiveTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/login/LogInNotAuthUserWithSignUpPositiveTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/login/LoginAuthUserNegativeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/login/LoginAuthUserNegativeTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/login/LoginAuthUserPositiveTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/login/LoginAuthUserPositiveTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/CounterDaysLeftPositiveTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/CounterDaysLeftPositiveTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/CreateWLButtonHomePageAuthUserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/CreateWLButtonHomePageAuthUserTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/CreateWLButtonHomePageNOTAuthUserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/CreateWLButtonHomePageNOTAuthUserTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/CreateWLFromAccountAuthUserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/CreateWLFromAccountAuthUserTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/CreateWLFromAccountNOTAuthUserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/CreateWLFromAccountNOTAuthUserTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/CreateWLiWantButtonHomePageAuthUserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/CreateWLiWantButtonHomePageAuthUserTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/CreateWLiWantButtonHomePageNOTAuthUserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/CreateWLiWantButtonHomePageNOTAuthUserTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/DeleteWishListPositiveTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/DeleteWishListPositiveTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/EditWishListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wishlist/tests/wishlist/EditWishListTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wishlist/pages/AboutUsPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wishlist/pages/AboutUsPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wishlist/pages/AccountPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wishlist/pages/AccountPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wishlist/pages/ApplicationManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wishlist/pages/ApplicationManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wishlist/pages/BasePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wishlist/pages/BasePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wishlist/pages/GiftPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wishlist/pages/GiftPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wishlist/pages/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wishlist/pages/HomePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wishlist/pages/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wishlist/pages/LoginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wishlist/pages/SignUpPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wishlist/pages/SignUpPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wishlist/pages/WishListContentPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wishlist/pages/WishListContentPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wishlist/pages/WishListPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wishlist/pages/WishListPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/account/CreateAccountPageTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/account/CreateAccountPageTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/account/DeleteAccountPageTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/account/DeleteAccountPageTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/homepage/HomePageTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/homepage/HomePageTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/login/LogInNotAuthUserNegativeTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/login/LogInNotAuthUserNegativeTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/login/LogInNotAuthUserWithSignUpPositiveTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/login/LogInNotAuthUserWithSignUpPositiveTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/login/LoginAuthUserTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/signup/SignUpNegativeTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/signup/SignUpPositiveTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/wishlist/CreateWLButtonHomePageAuthUserTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/wishlist/CreateWLButtonHomePageAuthUserTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/wishlist/CreateWLButtonHomePageNOTAuthUserTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/wishlist/CreateWLButtonHomePageNOTAuthUserTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/wishlist/CreateWLFromAccountAuthUserTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/wishlist/CreateWLFromAccountAuthUserTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/wishlist/CreateWLFromAccountNOTAuthUserTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/wishlist/CreateWLFromAccountNOTAuthUserTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/wishlist/CreateWLiWantButtonHomePageAuthUserTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/wishlist/CreateWLiWantButtonHomePageAuthUserTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/wishlist/CreateWLiWantButtonHomePageNOTAuthUserTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/wishlist/CreateWLiWantButtonHomePageNOTAuthUserTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/wishlist/EditWishListTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/wishlist/tests/wishlist/EditWishListTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/csv/LoginINvalidData.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/csv/LoginValidData.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/testng.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2guY9MoI25TC1Kdwoi2SGIPe78D" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.google.cloudcode.ide_session_index": "20240525_0000",
+    "last_opened_file_path": "C:/Users/Anastasiia/QA/project_wishlist",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  }
+}]]></component>
+  <component name="RunManager" selected="TestNG.CreateWLFromAccountNOTAuthUserTests">
+    <configuration name="CreateWLFromAccountAuthUserTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="WishList_Gradle.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wishlist.tests.wishlist.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.wishlist.tests.wishlist" />
+      <option name="MAIN_CLASS_NAME" value="com.wishlist.tests.wishlist.CreateWLFromAccountAuthUserTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateWLFromAccountNOTAuthUserTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="WishList_Gradle.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wishlist.tests.wishlist.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.wishlist.tests.wishlist" />
+      <option name="MAIN_CLASS_NAME" value="com.wishlist.tests.wishlist.CreateWLFromAccountNOTAuthUserTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EditWishListTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="WishList_Gradle.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wishlist.tests.wishlist.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.wishlist.tests.wishlist" />
+      <option name="MAIN_CLASS_NAME" value="com.wishlist.tests.wishlist.EditWishListTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LogInNotAuthUserNegativeTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="WishList_Gradle.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wishlist.tests.login.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.wishlist.tests.login" />
+      <option name="MAIN_CLASS_NAME" value="com.wishlist.tests.login.LogInNotAuthUserNegativeTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SignUpNegativeTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="WishList_Gradle.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wishlist.tests.account.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.wishlist.tests.account" />
+      <option name="MAIN_CLASS_NAME" value="com.wishlist.tests.account.SignUpNegativeTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.CreateWLFromAccountNOTAuthUserTests" />
+        <item itemvalue="TestNG.CreateWLFromAccountAuthUserTests" />
+        <item itemvalue="TestNG.LogInNotAuthUserNegativeTests" />
+        <item itemvalue="TestNG.SignUpNegativeTests" />
+        <item itemvalue="TestNG.EditWishListTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a96a4751-9de4-4bf2-a590-4089c2a9e285" name="Changes" comment="" />
+      <created>1716548778416</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716548778416</updated>
+    </task>
+    <servers />
+  </component>
+</project>

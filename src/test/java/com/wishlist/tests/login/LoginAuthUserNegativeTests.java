@@ -1,54 +1,82 @@
 package com.wishlist.tests.login;
 
+import com.wishlist.models.User;
+import com.wishlist.pages.AccountPage;
 import com.wishlist.pages.HomePage;
 import com.wishlist.pages.LoginPage;
+import com.wishlist.pages.SignUpPage;
 import com.wishlist.tests.TestBase;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
+import static com.wishlist.data.UserData.*;
 public class LoginAuthUserNegativeTests extends TestBase {
-    private HomePage homePage;
-    private LoginPage loginPage;
 
     @BeforeMethod
     public void precondition() {
         homePage = new HomePage(app.driver);
         loginPage = new LoginPage(app.driver);
+        signupPage = new SignUpPage(app.driver);
+        accountPage = new AccountPage(app.driver);
 
         if (!homePage.logInLinkPresent()) {
             homePage.clickOnLogOutLink();
+            homePage.clickOnSignUpLink();
         } else {
-            homePage.clickOnLogInLink();
+            homePage.clickOnSignUpLink();
         }
+        signupPage
+                .enterPersonalData(USER_DUDKINA_SIGNUP)
+                .clickOnSignUpButton()
+                .clickAlert();
+        loginPage
+                .enterPersonalData(USER_DUDKINA_LOGIN)
+                .clickOnLogInButton();
+        accountPage
+                .clickOnLogOutLinkAccount();
+        homePage
+                .clickOnLogInLink();
     }
     // Нет errorMessage для пустых полей ввода.Проверяю, что после клика на кнопку Login страница не меняется
     @Test
     public void loginWithoutPasswordNegativeTest() {
         loginPage
-                .enterPersonalData("dudkina@web.de", "")
-                .verifyLoginForm("Log In");
+                .enterPersonalData(USER_DUDKINA_WITHOUT_PASSWORD)
+                .clickOnLogInButton();
+        loginPage.verifyLoginForm("Log In");
     }
 
     @Test
     public void loginWithoutEmaildNegativeTest() {
         loginPage
-                .enterPersonalData("", "Berlin2024!")
-                .verifyLoginForm("Log In");
+                .enterPersonalData(USER_DUDKINA_WITHOUT_EMAIL)
+                .clickOnLogInButton();
+        loginPage.verifyLoginForm("Log In");
     }
 
     @Test
-    public void loginWithWrongEmaildNegativeTest() {
+    public void loginWithInvalidEmaildNegativeTest() {
         loginPage
-                .enterPersonalData("dudkina@web.na", "Berlin2024!")
-                .verifyErrorMessage("Error");
+                .enterPersonalData(USER_DUDKINA_INVALID_EMAIL)
+                .clickOnLogInButton();
+        loginPage.verifyLoginForm("Log In");
     }
 
     @Test
     public void loginWithWrongPasswordNegativeTest() {
         loginPage
-                .enterPersonalData("dudkina@web.de", "Muenchen2024$")
-                .verifyErrorMessage("Error");
+                .enterPersonalData(USER_DUDKINA_LOGIN_WRONG_PASSWORD)
+                .clickOnLogInButton();
+        loginPage.verifyErrorMessage("Invalid");
     }
 
+    @AfterMethod(enabled = true)
+    public void postcondition() {
+        loginPage
+                .enterPersonalData(USER_DUDKINA_LOGIN)
+                .clickOnLogInButton();
+        accountPage.selectDeleteAccountButton();
+        homePage.isHomePagePresent();
+        tearDown();
+    }
 }

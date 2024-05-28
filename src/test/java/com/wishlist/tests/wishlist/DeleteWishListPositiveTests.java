@@ -2,8 +2,13 @@ package com.wishlist.tests.wishlist;
 
 import com.wishlist.pages.*;
 import com.wishlist.tests.TestBase;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import static com.wishlist.data.UserData.USER_DUDKINA_LOGIN;
+import static com.wishlist.data.UserData.USER_DUDKINA_SIGNUP;
+import static com.wishlist.data.WishListData.WISHLIST_BIRTHDAY_DATA;
 
 public class DeleteWishListPositiveTests extends TestBase {
     @BeforeMethod
@@ -17,25 +22,37 @@ public class DeleteWishListPositiveTests extends TestBase {
 
         if (!homePage.logInLinkPresent()) {
             homePage.clickOnLogOutLink();
+            homePage.clickOnSignUpLink();
         } else {
-            homePage.clickOnLogInLink();
+            homePage.clickOnSignUpLink();
         }
+
+        signupPage
+                .enterPersonalData(USER_DUDKINA_SIGNUP)
+                .clickOnSignUpButton()
+                .clickAlert();
         loginPage
-                .enterPersonalData("dudkina@web.de", "Berlin2024!");
+                .enterPersonalData(USER_DUDKINA_LOGIN)
+                .clickOnLogInButton();
+        accountPage
+                .createWishListButton();
+        wishListPage
+                .fillWishListForm(WISHLIST_BIRTHDAY_DATA)
+                .clickSaveButton();
     }
 
     @Test
     public void deleteWishList() {
         accountPage
-                .createWishListButton();
-        wishListPage
-                .fillWishListForm("Birthday", "I have birthday soon", "15102025");
-        accountPage
                 .clickOnWishlist();
         wishListContentPage
                 .clickOnBasketToDelete()
                 .clickOnOKbutton();
-        accountPage
-                .verifyAccountPage("Create WishList");
+    }
+    @AfterMethod(enabled = true)
+    public void postcondition(){
+        accountPage.selectDeleteAccountButton();
+        homePage.isHomePagePresent();
+        tearDown();
     }
 }

@@ -1,10 +1,15 @@
 package com.wishlist.tests.gift;
 
+import com.wishlist.models.User;
 import com.wishlist.pages.*;
 import com.wishlist.tests.TestBase;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import static com.wishlist.data.GiftData.GIFT_FOR_LENA;
+import static com.wishlist.data.UserData.*;
+import static com.wishlist.data.WishListData.WISHLIST_BIRTHDAY_DATA;
 
 public class DeleteGiftFromWishListPositiveTests extends TestBase {
     @BeforeMethod
@@ -15,41 +20,46 @@ public class DeleteGiftFromWishListPositiveTests extends TestBase {
         signupPage = new SignUpPage(app.driver);
         aboutUsPage = new AboutUsPage(app.driver);
         wishListPage = new WishListPage(app.driver);
-        giftPage=new GiftPage(app.driver);
-        wishListContentPage=new WishListContentPage(app.driver);
+        giftPage = new GiftPage(app.driver);
+        wishListContentPage = new WishListContentPage(app.driver);
 
         if (!homePage.logInLinkPresent()) {
-            homePage.clickOnIconAccount();
+            homePage.clickOnLogOutLink();
+            homePage.clickOnSignUpLink();
         } else {
-            homePage.clickOnLogInLink();
+            homePage.clickOnSignUpLink();
         }
+        signupPage
+                .enterPersonalData(USER_DUDKINA_SIGNUP)
+                .clickOnSignUpButton()
+                .clickAlert();
         loginPage
-                .enterPersonalData("dudkina@web.de", "Berlin2024!");
+                .enterPersonalData(USER_DUDKINA_LOGIN)
+                .clickOnLogInButton();
         accountPage
                 .createWishListButton();
         wishListPage
-                .fillWishListForm("Birthday","I have birthday soon", "15102025");
+                .fillWishListForm(WISHLIST_BIRTHDAY_DATA)
+                .clickSaveButton();
         accountPage
                 .clickOnAddGiftButton();
         giftPage
-                .fillGiftform("https://www.douglas.de/de",
-                        "Chanel Allure",
-                        "100","USD",
-                        "I want this",
-                        "C:/Tools/Libre.jpg");
-
-
-        //accountPage.clickOnWishlist();
+                .fillGiftform(GIFT_FOR_LENA)
+                .clickSaveButton();
     }
+
     @Test
-    private void deleteGiftFromWishList(){
+    private void deleteGiftFromWishList() {
         wishListContentPage
                 .chooseDelete()
                 .verifyShare();
     }
+
     @AfterMethod
-    public void postcondition(){
+    public void postcondition() {
         wishListContentPage.clickOnGoToWishLists();
-        accountPage.verifyAccountPage("Create WishList");
+        accountPage.selectDeleteAccountButton();
+        homePage.isHomePagePresent();
+        tearDown();
     }
 }

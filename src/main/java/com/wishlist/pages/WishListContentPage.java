@@ -4,20 +4,27 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.time.Duration;
 
 public class WishListContentPage extends BasePage {
     public WishListContentPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
-    // @FindBy(xpath = "//button[.='OK']")
+    @FindBy(xpath = "//button[.='OK']")
     // @FindBy(css = "button:nth-child(3)")
-    @FindBy(xpath = "//span[.='OK']")
+    //@FindBy(xpath = "//span[.='OK']")
     WebElement buttonOK;
 
     public WishListContentPage clickOnOKbutton() {
-        pause(5000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        wait.until(ExpectedConditions.visibilityOf(buttonOK));
         click(buttonOK);
         return new WishListContentPage(driver);
     }

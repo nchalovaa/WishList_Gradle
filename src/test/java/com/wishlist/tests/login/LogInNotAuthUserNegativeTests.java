@@ -1,21 +1,25 @@
 package com.wishlist.tests.login;
 
+import com.wishlist.models.User;
 import com.wishlist.pages.HomePage;
 import com.wishlist.pages.LoginPage;
+import com.wishlist.pages.SignUpPage;
 import com.wishlist.tests.TestBase;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
+import static com.wishlist.data.UserData.*;
 public class LogInNotAuthUserNegativeTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
         homePage = new HomePage(app.driver);
         loginPage = new LoginPage(app.driver);
+        signupPage = new SignUpPage(app.driver);
 
         if (!homePage.logInLinkPresent()) {
             homePage.clickOnLogOutLink();
+            homePage.clickOnLogInLink();
         } else {
             homePage.clickOnLogInLink();
         }
@@ -24,9 +28,19 @@ public class LogInNotAuthUserNegativeTests extends TestBase {
     @Test
     public void loginWithValidEmailNegativeTest() {
         loginPage
-                .enterPersonalData("pupkin@web.de", "Berlin2024!")
-                .verifyErrorMessage("Error");
+                .enterPersonalData(USER_DUDKINA_SIGNUP)
+                .clickOnLogInButton();
+        loginPage.verifyErrorMessage("Invalid");
     }
+
+    @AfterMethod(enabled = true)
+    public void postcondition() {
+        loginPage.clickOnHomeLink();
+        homePage.isHomePagePresent();
+        tearDown();
+
+    }
+}
 
 //    @Test(dataProvider = "iNvalidLoginData", dataProviderClass = DataProviderClass.class)
 //    public void fillLogInWithCsvFileNegative(UserLogin user) {
@@ -43,5 +57,3 @@ public class LogInNotAuthUserNegativeTests extends TestBase {
 //                .clickOnLogInButtonWithJs()
 //                .verifyErrorMessage("Error");
 //    }
-
-}
